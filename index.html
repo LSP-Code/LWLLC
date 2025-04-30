@@ -3,118 +3,240 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Roadside Cleanup Initiative</title>
+  <title>Clean Roads Project</title>
   <style>
-    body {
+    :root {
+      --green: #00a86b;
+      --dark: #0d0d0d;
+      --light: #f4f4f4;
+      --gray: #555;
+    }
+
+    * {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f0f2f5;
-      color: #333;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
     }
 
     header {
-      background-color: #007a3d;
+      background: var(--green);
       color: white;
-      padding: 2rem;
       text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: auto;
     }
 
     nav {
-      background-color: #005e2a;
-      padding: 1rem;
-      text-align: center;
+      background: var(--dark);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
     }
 
     nav a {
       color: white;
-      margin: 0 1rem;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--green);
     }
 
     section {
-      padding: 2rem;
-      max-width: 800px;
+      padding: 3rem 2rem;
+      max-width: 900px;
       margin: auto;
     }
 
     h2 {
-      color: #007a3d;
+      font-size: 2rem;
+      color: var(--green);
+      margin-bottom: 1rem;
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .stat {
+      flex: 1;
+      background: white;
+      padding: 2rem;
+      border-left: 5px solid var(--green);
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .how-it-works {
+      background: #eafaf1;
+      padding: 3rem 2rem;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .step {
+      background: white;
+      padding: 1rem;
+      border-left: 5px solid var(--green);
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
 
     .cta {
-      background-color: #e6f4ea;
-      padding: 1rem;
-      border-left: 5px solid #007a3d;
-      margin: 2rem 0;
+      text-align: center;
+      background: var(--green);
+      color: white;
+      padding: 3rem 2rem;
+    }
+
+    .cta button {
+      background: white;
+      color: var(--green);
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 1rem;
     }
 
     form {
       display: flex;
       flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
     }
 
     form input, form textarea {
-      margin-bottom: 1rem;
       padding: 0.75rem;
       font-size: 1rem;
     }
 
     form button {
-      background-color: #007a3d;
+      background: var(--green);
       color: white;
       border: none;
       padding: 0.75rem;
-      font-size: 1rem;
       cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .testimonials {
+      background: #fff;
+      border-left: 5px solid var(--green);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      font-style: italic;
+      color: var(--gray);
     }
 
     footer {
-      background-color: #333;
+      background: var(--dark);
       color: white;
       text-align: center;
       padding: 1rem;
-      margin-top: 2rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Roadside Cleanup Initiative</h1>
-    <p>Together, let's keep our roads clean and our planet healthy.</p>
+    <h1>Clean Roads Project</h1>
+    <p>We unite communities to clean up roadsides, restore nature, and protect our planet — one bag of trash at a time.</p>
   </header>
 
   <nav>
     <a href="#mission">Mission</a>
-    <a href="#events">Events</a>
-    <a href="#join">Join Us</a>
+    <a href="#impact">Impact</a>
+    <a href="#how">How It Works</a>
+    <a href="#join">Join</a>
+    <a href="#testimonials">Stories</a>
     <a href="#contact">Contact</a>
   </nav>
 
   <section id="mission">
     <h2>Our Mission</h2>
-    <p>We are a community-driven organization committed to removing trash and debris from roadsides to protect the environment and beautify our neighborhoods.</p>
+    <p>We're a grassroots movement committed to cleaning up litter and debris from roadsides to make neighborhoods safer, cleaner, and more beautiful. We empower volunteers and local leaders to take action and protect the environment.</p>
   </section>
 
-  <section id="events">
-    <h2>Upcoming Cleanup Events</h2>
-    <ul>
-      <li>Saturday, May 4 — Main Street Cleanup, 9am–12pm</li>
-      <li>Saturday, May 11 — Riverbend Road Sweep, 10am–1pm</li>
-      <li>Saturday, May 18 — Greenway Trail Patrol, 8am–11am</li>
-    </ul>
+  <section id="impact">
+    <h2>Our Impact</h2>
+    <div class="stats">
+      <div class="stat">
+        <strong>5,200+</strong>
+        <p>Bags of trash collected</p>
+      </div>
+      <div class="stat">
+        <strong>300+</strong>
+        <p>Volunteers in action</p>
+      </div>
+      <div class="stat">
+        <strong>75</strong>
+        <p>Roads and trails cleaned</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <strong>Step 1:</strong> Choose a cleanup day and location.
+      </div>
+      <div class="step">
+        <strong>Step 2:</strong> We provide gear and safety tips.
+      </div>
+      <div class="step">
+        <strong>Step 3:</strong> Gather your group and clean!
+      </div>
+      <div class="step">
+        <strong>Step 4:</strong> Share your results and inspire others.
+      </div>
+    </div>
   </section>
 
   <section id="join" class="cta">
-    <h2>Become a Volunteer</h2>
-    <p>Join our passionate team of volunteers and help us make a difference. No experience needed — just bring your energy and a smile!</p>
-    <button onclick="alert('Thanks for your interest! Please contact us below.')">Sign Up</button>
+    <h2>Ready to Join?</h2>
+    <p>Be a part of something powerful. No experience required — just a desire to make a difference.</p>
+    <button onclick="alert('Thanks for your interest! Scroll down to contact us.')">Sign Up</button>
+  </section>
+
+  <section id="testimonials">
+    <h2>Volunteer Stories</h2>
+    <div class="testimonials">"I never thought picking up trash could feel so empowering. I met amazing people and made a real impact." – Jamie T.</div>
+    <div class="testimonials">"We cleaned up 3 miles of roadside in a day. The neighborhood looks incredible now." – Malik R.</div>
+    <div class="testimonials">"It’s a great way to give back, stay active, and help the Earth at the same time." – Sara L.</div>
   </section>
 
   <section id="contact">
     <h2>Contact Us</h2>
+    <p>Have a question or want to organize a local event? We’d love to hear from you!</p>
     <form>
       <input type="text" placeholder="Your Name" required />
       <input type="email" placeholder="Your Email" required />
@@ -124,7 +246,7 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 Roadside Cleanup Initiative. All rights reserved.</p>
+    <p>&copy; 2025 Clean Roads Project — All rights reserved.</p>
   </footer>
 
 </body>
