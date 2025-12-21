@@ -13,6 +13,10 @@
             --text-dim: #999999;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             font-family: 'Inter', -apple-system, system-ui, sans-serif;
@@ -79,7 +83,7 @@
             display: block;
         }
 
-        /* About Us Section */
+        /* Layout Grids */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -87,10 +91,11 @@
         }
 
         .about-content h2 {
-            font-size: 2.8rem;
+            font-size: clamp(2rem, 5vw, 2.8rem);
             margin-top: 0;
             letter-spacing: -2px;
             line-height: 1.2;
+            text-transform: uppercase;
         }
 
         .founder-quote {
@@ -102,7 +107,7 @@
             font-size: 1.1rem;
         }
 
-        /* Project Grid */
+        /* Project Cards */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -142,6 +147,58 @@
             letter-spacing: 1px;
         }
 
+        /* Volunteer Form Styles */
+        .volunteer-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--border);
+            color: #fff;
+            padding: 12px 0;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-bottom-color: var(--accent);
+        }
+
+        .form-group select option {
+            background: var(--surface);
+            color: #fff;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover { background: #ccc; }
+        
         /* CTA Section */
         .cta {
             background: #fff;
@@ -149,22 +206,6 @@
             padding: 120px 8%;
             text-align: center;
         }
-
-        .btn {
-            display: inline-block;
-            margin-top: 2rem;
-            padding: 1.2rem 3rem;
-            background: #000;
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.8rem;
-            transition: 0.3s;
-        }
-
-        .btn:hover { background: #333; }
 
         footer {
             padding: 60px 8%;
@@ -201,7 +242,7 @@
     <div class="about-grid">
         <div class="about-content">
             <h2>The Vision of Logan Westlake</h2>
-            <p style="color: var(--text-dim); font-size: 1.1rem;">Founded by Logan Westlake, the LW Foundation was born out of a refusal to accept the status quo. Driven by a deep-seated frustration with the increasing amount of litter and neglect on our local thoroughfares, Logan took action.</p>
+            <p style="color: var(--text-dim); font-size: 1.1rem;">Founded by Logan Westlake, the LW Foundation was born out of a refusal to accept the status quo. Driven by a deep-seated frustration with the neglect of our local thoroughfares, Logan took action.</p>
             <div class="founder-quote">
                 "I couldn't stand seeing how dirty and filthy our roads were getting. Our community deserves better, so we decided to be the ones to change it."
                 <br><br>
@@ -215,10 +256,9 @@
     </div>
 </section>
 
-<section class="section-padding" style="border-bottom: none;">
+<section class="section-padding">
     <span class="section-label">2025 Active Operations</span>
     <div class="grid">
-        
         <a href="https://lwllc.xyz/mirage" class="card-link">
             <div class="card">
                 <div class="status-tag">Scheduled</div>
@@ -236,14 +276,58 @@
                 <div style="margin-top: 2rem; font-size: 0.75rem; font-weight: bold; letter-spacing: 1px;">VIEW PROJECT DETAILS →</div>
             </div>
         </a>
+    </div>
+</section>
 
+<section id="volunteer" class="section-padding">
+    <span class="section-label">Join the Movement</span>
+    <div class="about-grid">
+        <div class="about-content">
+            <h2>Volunteer With Us</h2>
+            <p style="color: var(--text-dim);">Real change requires boots on the ground. We provide all necessary safety equipment, including vests, gloves, and collection tools. Whether you are looking for community service hours or simply want a cleaner neighborhood, we welcome your help.</p>
+            
+            <div style="margin-top: 3rem;">
+                <div style="margin-bottom: 2rem;">
+                    <div style="font-weight: bold; letter-spacing: 1px; font-size: 0.8rem; margin-bottom: 0.5rem;">SAFETY FIRST</div>
+                    <p style="color: var(--text-dim); font-size: 0.9rem; margin: 0;">All volunteers must attend a brief safety orientation at the start of each project site cleanup.</p>
+                </div>
+                <div>
+                    <div style="font-weight: bold; letter-spacing: 1px; font-size: 0.8rem; margin-bottom: 0.5rem;">GEAR PROVIDED</div>
+                    <p style="color: var(--text-dim); font-size: 0.9rem; margin: 0;">High-visibility vests, industrial gloves, and trash pickers are supplied to all participants.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: var(--surface); padding: 50px; border: 1px solid var(--border);">
+            <form id="volunteer-form" class="volunteer-form" action="https://formspree.io/f/xnjazonj" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="FULL NAME" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="EMAIL ADDRESS" required>
+                </div>
+                <div class="form-group">
+                    <select name="project" required>
+                        <option value="" disabled selected>SELECT A PROJECT</option>
+                        <option value="mirage-ave">Mirage Ave Cleanup</option>
+                        <option value="mirage-lake">Mirage Lake Preservation</option>
+                        <option value="general">General Interest / Future Projects</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="3" placeholder="MESSAGE (OPTIONAL)" style="background: transparent; border: none; border-bottom: 1px solid var(--border); color: #fff; padding: 12px 0; font-family: inherit; resize: none;"></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Submit Application</button>
+            </form>
+            <p style="font-size: 0.7rem; color: var(--text-dim); margin-top: 20px; text-align: center;">By submitting, you agree to be contacted regarding LW Foundation cleanup events.</p>
+        </div>
     </div>
 </section>
 
 <section class="cta">
-    <h2 style="font-size: 3rem; letter-spacing: -2px;">HELP US LEAD THE WAY.</h2>
-    <p style="font-size: 1.2rem; margin-top: 10px;">Volunteer for the Mirage Ave and Mirage Lake projects today.</p>
-    <a href="mailto:contact@lwfoundation.org" class="btn">Message the Team</a>
+    <h2 style="font-size: clamp(2rem, 6vw, 3rem); letter-spacing: -2px; margin: 0;">HELP US LEAD THE WAY.</h2>
+    <p style="font-size: 1.2rem; margin-top: 10px;">Be part of the solution in Hernando County.</p>
+    <a href="mailto:contact@lwfoundation.org" class="btn" style="background: #000; color: #fff; margin-top: 2rem;">Contact the Foundation</a>
 </section>
 
 <footer>
