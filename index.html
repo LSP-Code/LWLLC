@@ -30,7 +30,7 @@
             border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.95);
             backdrop-filter: blur(12px);
             z-index: 1000;
         }
@@ -46,7 +46,7 @@
 
         /* Hero */
         .hero {
-            padding: 100px 8%;
+            padding: 120px 8% 80px 8%;
             text-align: left;
             border-bottom: 1px solid var(--border);
         }
@@ -67,25 +67,48 @@
             margin-top: 2rem;
         }
 
-        /* Project Grid */
-        .section-padding { padding: 80px 8%; }
+        /* Section Global Styles */
+        .section-padding { padding: 100px 8%; border-bottom: 1px solid var(--border); }
 
         .section-label {
             font-size: 0.75rem;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             text-transform: uppercase;
             color: var(--text-dim);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             display: block;
         }
 
+        /* About Us Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .about-content h2 {
+            font-size: 2.8rem;
+            margin-top: 0;
+            letter-spacing: -2px;
+            line-height: 1.2;
+        }
+
+        .founder-quote {
+            border-left: 2px solid #fff;
+            padding-left: 30px;
+            margin: 40px 0;
+            font-style: italic;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        /* Project Grid */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
         }
 
-        /* Clickable Cards */
         .card-link {
             text-decoration: none;
             color: inherit;
@@ -96,15 +119,15 @@
             background: var(--surface);
             padding: 3rem;
             border: 1px solid var(--border);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             height: 100%;
             box-sizing: border-box;
         }
 
         .card-link:hover .card {
             border-color: var(--accent);
-            transform: translateY(-5px);
-            background: #1a1a1a;
+            transform: translateY(-8px);
+            background: #161616;
         }
 
         .status-tag {
@@ -112,42 +135,49 @@
             font-weight: bold;
             border: 1px solid var(--accent);
             color: var(--accent);
-            padding: 3px 8px;
+            padding: 4px 10px;
             display: inline-block;
             margin-bottom: 1.5rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* CTA Section */
         .cta {
             background: #fff;
             color: #000;
-            padding: 100px 8%;
+            padding: 120px 8%;
             text-align: center;
         }
 
         .btn {
             display: inline-block;
             margin-top: 2rem;
-            padding: 1.2rem 2.5rem;
+            padding: 1.2rem 3rem;
             background: #000;
             color: #fff;
             text-decoration: none;
             font-weight: bold;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .btn:hover { background: #333; }
+
+        footer {
+            padding: 60px 8%;
+            color: #555;
+            font-size: 0.75rem;
+            text-align: center;
             letter-spacing: 1px;
         }
 
-        footer {
-            padding: 40px 8%;
-            color: #444;
-            font-size: 0.75rem;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 3rem; }
-            nav { flex-direction: column; align-items: flex-start; gap: 10px; }
+        @media (max-width: 900px) {
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            h1 { font-size: 3.5rem; }
+            nav { flex-direction: column; align-items: flex-start; gap: 15px; }
         }
     </style>
 </head>
@@ -155,27 +185,46 @@
 
 <nav>
     <a href="#" class="brand-text">LW Foundation</a>
-    <div style="font-size: 0.7rem; letter-spacing: 1.5px; text-align: right; font-weight: bold; color: var(--text-dim);">
+    <div style="font-size: 0.7rem; letter-spacing: 2px; text-align: right; font-weight: bold; color: var(--text-dim);">
         HERNANDO COUNTY<br>PROJECT DASHBOARD
     </div>
 </nav>
 
 <section class="hero">
-    <div style="font-size: 0.8rem; letter-spacing: 4px; color: var(--text-dim); margin-bottom: 1rem;">EST. 2025</div>
-    <h1>FUTURE PROJECTS<br>IN FOCUS.</h1>
-    <p>We are currently in the planning and coordination phase for our upcoming roadside and lakeside preservation efforts in Hernando County.</p>
+    <div style="font-size: 0.8rem; letter-spacing: 5px; color: var(--text-dim); margin-bottom: 1rem;">EST. 2025</div>
+    <h1>CLEANING ROADS.<br>RESTORED PRIDE.</h1>
+    <p>The LW Foundation is a non-profit organization dedicated to the environmental preservation and beautification of Hernando County.</p>
 </section>
 
 <section class="section-padding">
-    <span class="section-label">Upcoming Operations (Click to view details)</span>
+    <span class="section-label">Our Foundation</span>
+    <div class="about-grid">
+        <div class="about-content">
+            <h2>The Vision of Logan Westlake</h2>
+            <p style="color: var(--text-dim); font-size: 1.1rem;">Founded by Logan Westlake, the LW Foundation was born out of a refusal to accept the status quo. Driven by a deep-seated frustration with the increasing amount of litter and neglect on our local thoroughfares, Logan took action.</p>
+            <div class="founder-quote">
+                "I couldn't stand seeing how dirty and filthy our roads were getting. Our community deserves better, so we decided to be the ones to change it."
+                <br><br>
+                <strong>— Logan Westlake, Founder</strong>
+            </div>
+        </div>
+        <div class="about-content">
+            <p style="margin-top: 0; color: var(--text-dim);">Today, the LW Foundation stands as a symbol of community accountability. We don't just wait for change; we drive it. Our partnership with the Hernando County Adopt-A-Road program ensures that our efforts are structured, legal, and high-impact.</p>
+            <p style="color: var(--text-dim);">Our focus is on more than just "picking up trash"—we are reclaiming the natural beauty of Hernando County for every resident and visitor.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding" style="border-bottom: none;">
+    <span class="section-label">2025 Active Operations</span>
     <div class="grid">
         
         <a href="https://lwllc.xyz/mirage" class="card-link">
             <div class="card">
                 <div class="status-tag">Scheduled</div>
                 <h3>Mirage Ave</h3>
-                <p style="color: var(--text-dim);">Upcoming roadside cleanup and debris management. Click to view the project map and scheduled dates.</p>
-                <div style="margin-top: 1rem; font-size: 0.8rem; text-decoration: underline;">View Project →</div>
+                <p style="color: var(--text-dim);">Comprehensive roadside cleanup. Our team will be clearing the corridors of Mirage Ave to restore its visual and environmental integrity.</p>
+                <div style="margin-top: 2rem; font-size: 0.75rem; font-weight: bold; letter-spacing: 1px;">VIEW PROJECT DETAILS →</div>
             </div>
         </a>
 
@@ -183,8 +232,8 @@
             <div class="card">
                 <div class="status-tag">Scheduled</div>
                 <h3>Mirage Lake</h3>
-                <p style="color: var(--text-dim);">Lakeside preservation effort. Focusing on shoreline restoration and litter prevention. Click for details.</p>
-                <div style="margin-top: 1rem; font-size: 0.8rem; text-decoration: underline;">View Project →</div>
+                <p style="color: var(--text-dim);">Lakeside preservation effort focusing on the shoreline area next to Mirage Ave. Protecting local water from pollution runoff.</p>
+                <div style="margin-top: 2rem; font-size: 0.75rem; font-weight: bold; letter-spacing: 1px;">VIEW PROJECT DETAILS →</div>
             </div>
         </a>
 
@@ -192,13 +241,13 @@
 </section>
 
 <section class="cta">
-    <h2 style="font-size: 2.5rem; letter-spacing: -2px;">GET INVOLVED</h2>
-    <p>Want to volunteer for the Mirage Ave or Mirage Lake projects?</p>
-    <a href="mailto:contact@lwfoundation.org" class="btn">Message Us</a>
+    <h2 style="font-size: 3rem; letter-spacing: -2px;">HELP US LEAD THE WAY.</h2>
+    <p style="font-size: 1.2rem; margin-top: 10px;">Volunteer for the Mirage Ave and Mirage Lake projects today.</p>
+    <a href="mailto:contact@lwfoundation.org" class="btn">Message the Team</a>
 </section>
 
 <footer>
-    &copy; 2025 LW FOUNDATION | ADOPT-A-ROAD PARTNER | HERNANDO COUNTY, FL
+    &copy; 2025 LW FOUNDATION | ADOPT-A-ROAD PARTNER | HERNANDO COUNTY, FLORIDA
 </footer>
 
 </body>
